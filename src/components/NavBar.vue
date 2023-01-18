@@ -1,7 +1,7 @@
 <template>
     <nav>
       <div class="title">
-        <h4>{{ title }}</h4>
+        <h2>{{ title }}</h2>
       </div>
         <ul>
             <li>
