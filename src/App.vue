@@ -4,16 +4,19 @@
     title= "Soniapop"></NavBar>
   </nav>
   <router-view/>
+  <ShoppingCart/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import  NavBar from "../src/components/NavBar.vue";
+import ShoppingCart from "./components/ShoppingCart.vue"
 
 export default defineComponent({
   name: "AppComponent",
   components: {
     NavBar,
+    ShoppingCart,
   }
 })
 </script>
