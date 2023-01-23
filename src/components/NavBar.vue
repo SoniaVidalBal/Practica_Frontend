@@ -3,6 +3,12 @@
       <div class="title">
         <h2>{{ title }}</h2>
       </div>
+      <!----><span>{{ greeting }}</span>
+      <div>
+        <button @click="nuevoSaludo">
+          Log in
+        </button>
+      </div>
         <ul>
             <li>
                 <router-link :to="{name: 'home'}">Home</router-link>
@@ -19,7 +25,8 @@
   
 
 <script lang="ts">
-  import { defineComponent } from "vue";
+  import { defineComponent, computed } from "vue";
+  import { useStore } from "vuex";
   
   export default defineComponent({
     name: "NavBar",
@@ -29,8 +36,16 @@
             required: true,
         }
     },
+   
     setup() {
-        return {}
+      const store = useStore();
+      
+      return {
+        greeting: computed(() => store.getters['saludo']),
+        nuevoSaludo:() => {
+          store.commit('cambioSaludo', "Hola, usuario")
+        }
+      }
     }
     });
 </script>

@@ -17,7 +17,7 @@ import soniapopApi from '../api/soniapopApi';
 import { Products } from '../models/product'
 
   export default defineComponent({
-    setup(props) {
+    setup() {
       let products = ref<Products>();
       soniapopApi.get<unknown, AxiosResponse<Products>>('/products')
         .then((resp) => (products.value = resp.data)); 

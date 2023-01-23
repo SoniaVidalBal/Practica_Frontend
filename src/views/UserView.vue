@@ -27,7 +27,7 @@ import { User } from '../models/users'
     setup(props) {
       let user = ref<User>();
     
-      soniapopApi.get<unknown, AxiosResponse<User>>(`/users/1`)
+      soniapopApi.get<unknown, AxiosResponse<User>>(`/users/${props.id}`)
         .then((resp) => (user.value = resp.data)); 
       return {user};
     }
