@@ -2,13 +2,15 @@
     <div class="about">
       <h1>This is a detail page</h1>
     </div>
+    <button @click="addProduct(product)" class="btn btn-primary">Añadir al carrito</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { AxiosResponse } from 'axios';
 import soniapopApi from '../api/soniapopApi';
 import { Products } from '../models/product'
+import { useCart } from '@/composables/UseCart';
 
   export default defineComponent({
     props: {
@@ -18,10 +20,15 @@ import { Products } from '../models/product'
       }
     },
     setup(props) {
+      const { addProduct } = useCart();
+      let product = ref<Products>();
       soniapopApi.get<unknown, AxiosResponse<Products[]>>(`/products/${props.id}`).then((resp) => {
-        console.log(resp.data)
+        product.value = resp.data
       }); 
-      return {};
+      return {
+        product, 
+        addProduct,
+      };
     }
   })
 </script>
