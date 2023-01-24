@@ -2,12 +2,6 @@
   <div class="about">
     <h3>This is a products page</h3>
   </div>
-  
-  <!--<div v-for="product in products":key="">
-  <h4>
-  {{ product }}
-  </h4>
-  </div>-->
 </template>
 
 <script lang="ts">
