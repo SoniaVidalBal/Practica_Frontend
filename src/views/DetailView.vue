@@ -2,7 +2,8 @@
     <div class="about">
       <h1>This is a detail page</h1>
     </div>
-    <button @click="addProduct(product)" class="btn btn-primary">Añadir al carrito</button>
+    <div></div>
+    <button class="btn btn-primary">Añadir al carrito</button>
 </template>
 
 <script lang="ts">
@@ -23,7 +24,7 @@ import { useCart } from '@/composables/UseCart';
       const { addProduct } = useCart();
       let product = ref<Products>();
       soniapopApi.get<unknown, AxiosResponse<Products[]>>(`/products/${props.id}`).then((resp) => {
-        product.value = resp.data
+        console.log(resp.data)
       }); 
       return {
         product, 
