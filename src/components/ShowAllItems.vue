@@ -6,6 +6,14 @@
         <div class="item-info"> 
             <div class="product-name">{{ product.title }}</div>
             <div class="product-price"> {{ product.price }}€</div>
+            <div class="buttons">
+                <Button class="btn btn-sm btn-primary" @click="$emit ('addProduct', product)">
+                    Añadir al carrito
+                </Button>
+                <button class="btn btn-sm btn-success" @click="$emit ('goToDetail', product )">
+                    Ver detalle
+                </button>
+            </div>
         </div>
     </div>
 

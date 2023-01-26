@@ -5,7 +5,12 @@
     Cargando...
     </div>
     <div class="product-list" v-else>
-      <ShowAllItems v-for="product in products" :key="product.id" :product="product"/>
+      <ShowAllItems v-for="product in products" 
+      :key="product.id" 
+      :product="product" 
+      @addProduct="addProduct"
+      @goToDetail="goToDetail"
+      />
     </div>
   </div>
 </template>
@@ -14,15 +19,25 @@
 import { defineComponent } from 'vue';
 import useProducts from '@/composables/useProducts'
 import ShowAllItems from '@/components/ShowAllItems.vue';
+import { useCart } from '@/composables/UseCart';
+import { useRouter } from 'vue-router';
+import { Products } from '@/models/product';
 
   export default defineComponent({
     name: 'ProductsView', 
     components: { ShowAllItems },
     setup() {
       const {products, isLoading, loadProducts} = useProducts()
+      const {addProduct} = useCart();
+      const router = useRouter();
       loadProducts();
-      return {products, isLoading}
-    }
+      return {products, 
+        isLoading, 
+        addProduct, 
+        goToDetail: (product: Products) => 
+          router.push({name: 'detail', params: {id: product.id}})
+      };
+    },
   })
 </script>
 
