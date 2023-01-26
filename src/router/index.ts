@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/products',
     name: 'products',
     beforeEnter: [haveUserRole],
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "products" */ '../views/ProductsView.vue')
   },
   {
     path: '/user/:id',
