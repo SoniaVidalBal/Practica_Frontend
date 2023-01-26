@@ -6,9 +6,12 @@ const useProducts = () => {
     return {
         products: computed(() => store.getters['products/getProducts']),
         isLoading: computed(() => store.getters['products/getIsLoading']),
+        product: computed(() => store.getters['products/getProduct']),
 
-        loadProducts: () => store.dispatch('products/loadProducts')
+        loadProducts: () => store.dispatch('products/loadProducts'),
+        loadProduct: (productId: number) =>
+            store.dispatch('products/loadProduct', productId),
     }
-}
+};
 
 export default useProducts;

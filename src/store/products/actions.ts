@@ -11,8 +11,14 @@ const actions: ActionTree<IProductsState, IState> = {
         const {data} = await soniapopApi.get<unknown, AxiosResponse<Products[]>>('/products');
         commit('setIsLoading', false);
 
-        commit('setProducts', data)
-    }
-}
+        commit('setProducts', data);
+    },
+    async loadProduct({commit}, productId: number) {
+        commit('setIsLoading', true);
+        const {data} = await soniapopApi.get<unknown, AxiosResponse<Products>>(`/products/${productId}`);
+        commit('setIsLoading', false);
+        commit('setSelectedProduct', data)
+    },
+};
 
 export default actions;

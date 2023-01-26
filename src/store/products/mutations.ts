@@ -8,7 +8,10 @@ const mutations: MutationTree<IProductsState> = {
     },
     setIsLoading(state: IProductsState, value: boolean) {
         state.isLoading = value;
-    }
+    },
+    setSelectedProduct(state, product: Products) {
+        state.selectedProduct = product;
+    },
 }
 
 export default mutations;
