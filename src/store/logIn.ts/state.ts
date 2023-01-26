@@ -1,14 +1,14 @@
 
 
-export interface IProductsState {
-    token: 
+//export interface IProductsState {
+   // token: 
 
-}
+//}
 
-function state(): IProductsState {
-    return {
-        token:
-    }
-}
+//function state(): IProductsState {
+   // return {
+   //     token:
+   // }
+//}
 
-export default state;
+//export default state;

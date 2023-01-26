@@ -7,6 +7,9 @@ export const useCart = () => {
     return {
         cartElements: computed(()=> store.getters['cart/getCartElements']),
         isCartOpen: computed(()=> store.getters['cart/getIsOpen']),
+
         addProduct: (product: Products) => store.commit ('cart/addProduct', product),
+        removeProduct: (product: Products) => store.commit ('cart/removeProduct', product),
+        toggleCart: () => store.commit('cart/toggleCart')
     }
 }

@@ -10,6 +10,9 @@ const mutation: MutationTree<ICartState> = {
         const tmp = state.products.filter((prod) => prod.id !== element.id);
         state.products = tmp
     },
+    toggleCart(state) {
+        state.isOpen = !state.isOpen;
+    }
 }
 
 export default mutation;

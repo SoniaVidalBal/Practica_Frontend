@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Imagen de rawpixel.com</a> en Freepik" src="../assets/66879.jpg">
     <HelloWorld msg="Welcome to Soniapop"/>
   </div>
 </template>
@@ -16,3 +16,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.home >img {
+  width: 300px;
+}
+</style>

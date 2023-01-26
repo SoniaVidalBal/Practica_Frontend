@@ -1,32 +1,40 @@
 <template>
     <div class="cart">
         <div class="cart-header">
-            <h3>Mi carrito {{ cartElements.lenght }}</h3>
+            <h3>Mi carrito</h3>
+            Número de productos: {{ cartElements.length }}
         </div>
         <div class="cart-items">
             <ul>
                 <li v-for="element in cartElements" :key="element.id" >
-                {{ element.name }}
-            </li>
+                    <div class="cart-details">
+                        {{ element.title }} {{ element.price }}
+                    </div>
+                    <div class="actions">
+                        <button @click="removeProduct(element)" class="btn btn-danger">x</button>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="cart-footer">
             <h2>Total:</h2>
-            <button class="btn btn-primary">Tramitar compra</button>
+            <button class="btn btn sm btn-primary">Tramitar compra</button>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent } from 'vue';
 import { useCart } from '../composables/UseCart';
 
 
 export default defineComponent({
     setup(){
-        const {cartElements} = useCart();
+        const {cartElements, removeProduct, toggleCart} = useCart();
         return {
-            cartElements
+            cartElements,
+            removeProduct, 
+            toggleCart,
         }
     }
 })
@@ -50,8 +58,21 @@ export default defineComponent({
 
 .cart-header, .cart-footer {
     background-color: grey;
-    height: 50px;
+    height: 75px;
     width: 100%;
+}
+
+.cart-items ul {
+  list-style: none;
+}
+
+li {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .cart-footer {

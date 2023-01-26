@@ -5,9 +5,7 @@
       </div>
       <!----><span>{{ greeting }}</span>
       <div>
-        <button @click="nuevoSaludo">
-          Log in
-        </button>
+        <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
       </div>
         <ul>
             <li>
@@ -27,6 +25,7 @@
 <script lang="ts">
   import { defineComponent, computed } from "vue";
   import { useStore } from "vuex";
+  import { useCart } from "@/composables/UseCart";
   
   export default defineComponent({
     name: "NavBar",
@@ -39,12 +38,13 @@
    
     setup() {
       const store = useStore();
-      
+      const { toggleCart } = useCart();
       return {
         greeting: computed(() => store.getters['saludo']),
         nuevoSaludo:() => {
           store.commit('cambioSaludo', "Hola, usuario")
-        }
+        },
+        toggleCart,
       }
     }
     });

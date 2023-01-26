@@ -4,20 +4,27 @@
     title= "Soniapop"></NavBar>
   </nav>
   <router-view/>
-  <!--<ShoppingCart/>-->
+  <ShoppingCart v-show="isCartOpen"/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import  NavBar from "../src/components/NavBar.vue";
-//import ShoppingCart from "./components/ShoppingCart.vue"
+import ShoppingCart from "./components/ShoppingCart.vue";
+import { useCart } from "./composables/UseCart";
 
 export default defineComponent({
   name: "AppComponent",
   components: {
     NavBar,
-    //ShoppingCart,
-  }
+    ShoppingCart,
+  }, 
+  setup() {
+    const { isCartOpen } = useCart();
+    return {
+      isCartOpen,
+    };
+  },
 })
 </script>
 
