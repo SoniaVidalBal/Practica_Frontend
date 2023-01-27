@@ -1,14 +1,16 @@
+import { User } from "@/models/users"
 
+export interface IUserState {
+   users: User[],
+   //token: 
 
-//export interface IProductsState {
-   // token: 
+}
 
-//}
+function state(): IUserState {
+   return {
+      users: [],
+      //token:
+   }
+}
 
-//function state(): IProductsState {
-   // return {
-   //     token:
-   // }
-//}
-
-//export default state;
+export default state;

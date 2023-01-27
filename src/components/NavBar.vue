@@ -3,21 +3,24 @@
       <div class="title">
         <h2>{{ title }}</h2>
       </div>
-      <!----><span>{{ greeting }}</span>
+      <span>{{ greeting }}</span>
+      <ul>
+          <li>
+              <router-link :to="{name: 'home'}">Home</router-link>
+          </li>
+          <li>
+              <router-link :to="{name: 'products'}">Products</router-link>
+          </li>
+          <li>
+              <router-link :to="{name: 'user', params: {id : 1}}">User</router-link>
+          </li>
+      </ul>
       <div>
-        <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
+      <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
       </div>
-        <ul>
-            <li>
-                <router-link :to="{name: 'home'}">Home</router-link>
-            </li>
-            <li>
-                <router-link :to="{name: 'products'}">Products</router-link>
-            </li>
-            <li>
-                <router-link :to="{name: 'user', params: {id : 1}}">User</router-link>
-            </li>
-        </ul>
+      <div>
+      <button class="btn btn-secondary">Log out</button>
+      </div>
     </nav>
 </template>
   

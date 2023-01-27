@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import haveUserRole from './user-role'
 
 const routes: Array<RouteRecordRaw> = [
+//
   {
     path: '/',
     name: 'home',
