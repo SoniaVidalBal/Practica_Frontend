@@ -1,21 +1,12 @@
-import { User } from "@/models/users"
 
-export interface IUserState {
-   users: User[],
-   isLoading: boolean;
-   //email: string,
-   //password: string,
-   //token: 
 
+export interface IUsersState {
+   token: string | null
 }
 
-function state(): IUserState {
-   return {
-      users: [],
-      isLoading: false,
-      //email: "",
-      //password: "",
-      //token:
+function state(): IUsersState {
+  return {   
+      token: null
    }
 }
 

@@ -1,16 +1,17 @@
+import { Login } from "@/models/users";
 import { computed } from "vue";
-import { useStore } from "vuex"
+import { useStore } from "vuex";
 
 const useLogin = () => {
-    const store = useStore();
-    return {
-        users: computed(() => store.getters['login/getUser']),
-        isLoading: computed(() => store.getters['login/getIsLoading']),
-        //email: computed(() => store.getters['logIn/getEmail']),
-        //password: computed(() => store.getters['logIn/getPassword']),
+  const store = useStore();
 
-        loadUsers: () => store.dispatch('login/prepareUsers'),
-    }
+  return {
+    // GETTERS
+    token: computed(() => store.getters["login/getToken"]),
+
+    // ACTIONS
+    login: (login: Login) => store.dispatch("logIn/signin", login),
+  };
 };
 
 export default useLogin;

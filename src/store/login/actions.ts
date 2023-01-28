@@ -1,16 +1,14 @@
 import soniapopApi from "@/api/soniapopApi";
+import { Login } from "@/models/users";
 import { ActionTree } from "vuex";
 import { IState } from "..";
-import { IUserState } from "./state";
-import { AxiosResponse } from 'axios';
-import { User } from '@/models/users'
+import { IUsersState } from "./state";
 
-const actions: ActionTree<IUserState, IState> = {
-    async prepareUsers({commit}) {
-        commit('setIsLoading', true);
-        const {data} = await soniapopApi.get<unknown, AxiosResponse<User[]>>('/users');
-        commit('setIsLoading', false);
-        commit('setUsers', data);
+const actions: ActionTree<IUsersState, IState> = {
+    async signin ({ commit }, login: Login) {
+        const {data} = await soniapopApi.post('/auth/login/', login)
+        localStorage.setItem('token', data.access_token)
+        commit('setToken', data.access_token)
     },
 };
 

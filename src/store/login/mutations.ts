@@ -1,20 +1,11 @@
-import { MutationTree } from "vuex";
-import { IUserState } from "./state";
-import { User } from "@/models/users";
 
-const mutations: MutationTree<IUserState> = {
-    setUsers(state: IUserState, users: User[]) {
-        state.users = users;
-    },
-    setIsLoading(state: IUserState, value: boolean) {
-        state.isLoading = value;
-    },
-    //setEmail(state: IUserState, value: string) {
-    //    state.email = value;
-    //},
-    //setPassword(state, value: string) {
-    //    state.password = value;
-   // },
-}
+import { MutationTree } from "vuex";
+import { IUsersState } from "./state";
+
+const mutations: MutationTree<IUsersState> = {
+  setToken(state: IUsersState, token: string) {
+    state.token = token;
+  },
+};
 
 export default mutations;

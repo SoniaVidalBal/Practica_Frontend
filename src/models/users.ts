@@ -5,6 +5,9 @@ export interface User {
     name:       string;
     role:       string;
     avatar:     string;
-    creationAt: Date;
-    updatedAt:  Date;
+}
+
+export interface Login {
+    email:      string;
+    password:   string;
 }

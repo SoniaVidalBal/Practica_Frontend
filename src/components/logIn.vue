@@ -1,22 +1,38 @@
 <template>
     <div class="login">
         <h1 class="login-title">Log In</h1>
-        <form class="form">
+        <form class="form" @submit.prevent="sendLogIn">
             <label  class="form-label" for="email">Email:</label>
-            <input class="form-input" type="email" id="email" required placeholder="hola@email.com">
+            <input v-model="email" class="form-input" type="email" id="email" required placeholder="hola@email.com">
             <label class="form-label" for="password">Password:</label>
-            <input class="form-input" type="password" id="password" required placeholder="********">
+            <input v-model="password" class="form-input" type="password" id="password" required placeholder="********">
             <button class="btn btn-primary" type="submit">Log In</button>
         </form>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import useLogin from '@/composables/useLogin';
+import router from '@/router';
 
 
 export default defineComponent ({
     name: "LogIn",
+    setup () {
+    const { login } = useLogin()
+    const email = ref<string>('');
+    const password = ref<string>('');
+    return {
+      email, 
+      password,
+      async sendLogIn() {
+        const userinfo = { email: email.value, password: password.value }
+        await login(userinfo)
+        router.push({name: 'products'})
+      }
+    }
+    }
 })
 </script>
 
