@@ -1,12 +1,12 @@
 <template>
-    <div class="about">
-      <h1>This is a detail page</h1>
-    </div>
-    <div v-if="!isLoading">
+  <div v-if="!isLoading" class="item">
     <h1>{{ product.title }}</h1>
-    <h2>{{ product.price }}</h2>
-    <img :src="product.images[0]" alt="" />
-
+    <h2>{{ product.price }}€</h2>
+    <img :src="product.images" alt="" />
+    <div class="description">
+      {{ product.description }}
+    </div>
+    
     <button @click="addProduct(product)" class="btn btn-success">
       Añadir al Carrito
     </button>
@@ -39,3 +39,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.description{
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+
+}
+</style>

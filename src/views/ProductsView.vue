@@ -1,6 +1,9 @@
 <template>
+  <div class="search">
+    <SearchBar/>
+  </div>
+
   <div class="products">
-    <h3>This is a products page</h3>
     <div v-if="isLoading">
     Cargando...
     </div>
@@ -22,10 +25,14 @@ import ShowAllItems from '@/components/ShowAllItems.vue';
 import { useCart } from '@/composables/UseCart';
 import { useRouter } from 'vue-router';
 import { Products } from '@/models/product';
+import SearchBar from '@/components/searchBar.vue';
 
   export default defineComponent({
     name: 'ProductsView', 
-    components: { ShowAllItems },
+    components: { 
+      ShowAllItems,
+      SearchBar
+     },
     setup() {
       const {products, isLoading, loadProducts} = useProducts()
       const {addProduct} = useCart();
@@ -45,6 +52,8 @@ import { Products } from '@/models/product';
 .product-list{
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   gap: 1rem 1rem;
 }

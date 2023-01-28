@@ -39,6 +39,8 @@ import { defineComponent, PropType } from 'vue';
     width: 300px;
     display: flex;
     border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
 
 }
 

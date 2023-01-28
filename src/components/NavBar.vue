@@ -1,27 +1,27 @@
 <template>
-    <nav>
+  <nav class="init">
       <div class="title">
         <h2>{{ title }}</h2>
       </div>
-      <span>{{ greeting }}</span>
-      <ul>
-          <li>
-              <router-link :to="{name: 'home'}">Home</router-link>
-          </li>
-          <li>
-              <router-link :to="{name: 'products'}">Products</router-link>
-          </li>
-          <li>
-              <router-link :to="{name: 'user', params: {id : 1}}">User</router-link>
-          </li>
-      </ul>
+        <span>{{ greeting }}</span>
       <div>
-      <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
+        <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
       </div>
       <div @click="logOut">
-      <button class="btn btn-secondary">Log out</button>
+        <button class="btn btn-secondary">Log out</button>
       </div>
-    </nav>
+  </nav>
+  <nav class="navbar">
+    <li>
+        <router-link :to="{name: 'home'}">Home</router-link>
+    </li>
+    <li>
+        <router-link :to="{name: 'products'}">Products</router-link>
+    </li>
+    <li>
+        <router-link :to="{name: 'user', params: {id : 1}}">User</router-link>
+    </li>
+  </nav>
 </template>
   
 
@@ -61,29 +61,38 @@
 </script>
   
 <style scoped>
-  nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    color: white;
+.init {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  color: white;
 }
-  h4 {
+h4 {
+  color: white;
+}
+.navbar{
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #415161;
     color: white;
 }
 
-ul {
+.title {
+  padding: 20px;
+}
+nav a {
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+}
+  
+li {
   display: flex;
   justify-content: center;
   list-style: none;
 }
-  .title {
-    padding: 20px;
-  }
-  nav a {
-    font-weight: bold;
-    color: white;
-    padding: 10px;
-  }
 </style>

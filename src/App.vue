@@ -1,8 +1,7 @@
 <template>
-  <nav>
-    <NavBar
-    title= "Soniapop"></NavBar>
-  </nav>
+  <NavBar
+    title= "Soniapop">
+  </NavBar>
   <router-view/>
   <ShoppingCart v-show="isCartOpen"/>
 </template>
