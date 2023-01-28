@@ -10,6 +10,7 @@
 import { defineComponent } from 'vue';
 //import HelloWorld from '@/components/HelloWorld.vue';
 import logIn from '@/components/logIn.vue';
+import  useLogin  from '../composables/useLogin'
 
 export default defineComponent({
   name: 'HomeView',
@@ -17,6 +18,13 @@ export default defineComponent({
     //HelloWorld,
     logIn,
   },
+  setup(){
+        const {users, loadUsers} = useLogin();
+        loadUsers()
+        return {
+            users,
+        }
+    }
 });
 </script>
 

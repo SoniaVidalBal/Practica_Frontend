@@ -1,11 +1,11 @@
 <template>
     <div class="login">
         <h1 class="login-title">Log In</h1>
-        <form class="form" @submit.prevent="login">
+        <form class="form">
             <label  class="form-label" for="email">Email:</label>
-            <input v-model="email" class="form-input" type="email" id="email" required placeholder="hola@email.com">
+            <input class="form-input" type="email" id="email" required placeholder="hola@email.com">
             <label class="form-label" for="password">Password:</label>
-            <input v-model="password" class="form-input" type="password" id="password" required placeholder="********">
+            <input class="form-input" type="password" id="password" required placeholder="********">
             <button class="btn btn-primary" type="submit">Log In</button>
         </form>
     </div>
@@ -14,18 +14,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+
 export default defineComponent ({
     name: "LogIn",
-    data: () => ({
-        email: "",
-        password: "",
-    }),
-    methods: {
-    login() {
-      console.log(this.email);
-      console.log(this.password);
-    }
-  }
 })
 </script>
 
@@ -75,8 +66,6 @@ button {
   padding: 1rem 0;
   cursor: pointer;
   transition: background 0.2s;
-}:hover {
-    background: #0b9185;
-  }
+}
 
 </style>
