@@ -12,13 +12,13 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/products',
     name: 'products',
-    //beforeEnter: [haveUserRole],
+    beforeEnter: [haveUserRole],
     component: () => import(/* webpackChunkName: "products" */ '../views/ProductsView.vue')
   },
   {
     path: '/user/:id',
     name: 'user',
-    //beforeEnter: [haveUserRole],
+    beforeEnter: [haveUserRole],
     component: () => import(/* webpackChunkName: "user" */ '../views/UserView.vue'), 
     props: (route) => {
       const id = Number(route.params.id);

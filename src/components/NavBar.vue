@@ -18,7 +18,7 @@
       <div>
       <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
       </div>
-      <div>
+      <div @click="logOut">
       <button class="btn btn-secondary">Log out</button>
       </div>
     </nav>
@@ -29,6 +29,8 @@
   import { defineComponent, computed } from "vue";
   import { useStore } from "vuex";
   import { useCart } from "@/composables/UseCart";
+  import  useLogin  from "@/composables/useLogin"
+  import router from "@/router";
   
   export default defineComponent({
     name: "NavBar",
@@ -42,12 +44,17 @@
     setup() {
       const store = useStore();
       const { toggleCart } = useCart();
+      const { logout } = useLogin();
       return {
         greeting: computed(() => store.getters['saludo']),
         nuevoSaludo:() => {
           store.commit('cambioSaludo', "Hola, usuario")
         },
         toggleCart,
+        logOut(){
+          logout(), 
+          router.push({name: 'home'})
+        }
       }
     }
     });

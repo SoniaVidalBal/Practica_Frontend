@@ -7,10 +7,11 @@ const useLogin = () => {
 
   return {
     // GETTERS
-    token: computed(() => store.getters["login/getToken"]),
+    token: computed(() => store.getters["logIn/getToken"]),
 
     // ACTIONS
-    login: (login: Login) => store.dispatch("logIn/signin", login),
+    login: (login: Login) => store.dispatch("logIn/login", login),
+    logout: () => store.dispatch('logIn/logOut')
   };
 };
 

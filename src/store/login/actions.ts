@@ -5,11 +5,16 @@ import { IState } from "..";
 import { IUsersState } from "./state";
 
 const actions: ActionTree<IUsersState, IState> = {
-    async signin ({ commit }, login: Login) {
+    async login ({ commit }, login: Login) {
         const {data} = await soniapopApi.post('/auth/login/', login)
         localStorage.setItem('token', data.access_token)
         commit('setToken', data.access_token)
     },
+    async logOut( {commit}) {
+      localStorage.getItem('token')
+      localStorage.removeItem('token')
+      commit('removeToken')
+  }
 };
 
 export default actions;
