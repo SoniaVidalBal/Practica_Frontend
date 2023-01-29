@@ -17,7 +17,6 @@
             </ul>
         </div>
         <div class="cart-footer">
-            <h2>Total:</h2>
             <button class="btn btn sm btn-primary">Tramitar compra</button>
         </div>
     </div>
@@ -75,9 +74,4 @@ li {
   margin-bottom: 10px;
 }
 
-.cart-footer {
-    background-color: grey;
-    height: 100px;
-    width: 100%;
-}
 </style>

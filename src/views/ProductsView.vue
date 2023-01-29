@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <SearchBar/>
+    <SearchBar @filter="filterByName"/>
   </div>
 
   <div class="products">
@@ -38,12 +38,18 @@ import SearchBar from '@/components/searchBar.vue';
       const {addProduct} = useCart();
       const router = useRouter();
       loadProducts();
-      return {products, 
+      return {
+        products, 
         isLoading, 
         addProduct, 
         goToDetail: (product: Products) => 
-          router.push({name: 'detail', params: {id: product.id}})
-      };
+          router.push({name: 'detail', params: {id: product.id}}),
+        filterByName(product: Products, filter: string){
+          if(filter == product.title){
+            loadProducts()
+          } 
+        }
+      }
     },
   })
 </script>

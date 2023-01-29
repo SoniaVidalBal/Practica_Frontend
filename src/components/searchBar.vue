@@ -1,18 +1,25 @@
 <template>
 
 <div class="search-bar">     
-    <input class="search" type="text" name="search-bar" placeholder="Busca el objecto que deseas encontrar">
-    <button class="btn btn-sm">Buscar</button>
+    <input v-model="filter" class="search" type="search" name="search-bar" placeholder="Busca el objecto que deseas encontrar">
+    <button @click="$emit('filter', filter)" class="btn btn-sm">Buscar</button>
 </div>
 
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
-    export default defineComponent({
+export default defineComponent({
     name: 'SearchBar',
-    });
+    setup() {
+        const filter = ref<string>('')
+        return{
+            filter,
+        }
+    }
+});
+
 
 </script>
 

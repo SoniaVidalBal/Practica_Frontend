@@ -1,6 +1,6 @@
 <template>
     <div class="about" v-if="user">
-      <h2>Hola {{ user.name }}</h2>
+      <h2>Hola {{ user?.name }}</h2>
       <h4>Estos son tus datos:</h4>
       <img :src="user.avatar" alt="">
       <h5> Correo electrónico: {{ user.email }} </h5>
@@ -12,24 +12,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { AxiosResponse } from 'axios';
-import soniapopApi from '../api/soniapopApi';
-import { User } from '../models/users'
+import { defineComponent} from 'vue';
+import useLogin from '@/composables/useLogin';
 
   export default defineComponent({
-    props: {
-      id: {
-        type: Number,
-        required: true,
+  
+    setup() {
+      const { user, loadUser } = useLogin();
+      loadUser()
+      return {
+        loadUser,
+        user,
       }
-    },
-    setup(props) {
-      let user = ref<User>();
-    
-      soniapopApi.get<unknown, AxiosResponse<User>>(`/users/${props.id}`)
-        .then((resp) => (user.value = resp.data)); 
-      return {user};
     }
   })
 </script>

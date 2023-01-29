@@ -16,14 +16,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "products" */ '../views/ProductsView.vue')
   },
   {
-    path: '/user/:id',
+    path: '/user',
     name: 'user',
     beforeEnter: [haveUserRole],
     component: () => import(/* webpackChunkName: "user" */ '../views/UserView.vue'), 
-    props: (route) => {
-      const id = Number(route.params.id);
-      return isNaN(id) ? {id: null} : {id};
-    }
   },
   {
     path: '/products/detail/:id',

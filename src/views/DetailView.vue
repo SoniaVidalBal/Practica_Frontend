@@ -1,15 +1,22 @@
 <template>
   <div v-if="!isLoading" class="item">
-    <h1>{{ product.title }}</h1>
-    <h2>{{ product.price }}€</h2>
-    <img :src="product.images" alt="" />
-    <div class="description">
-      {{ product.description }}
+    <h1 class="title">{{ product.title }}</h1>
+    <div class="container">    
+      <div class="slides" v-for="image in product.images" 
+        :key="image"
+        :image="image">
+        <img :src="image"  class="image" alt="" />
+      </div>
     </div>
-    
-    <button @click="addProduct(product)" class="btn btn-success">
+    <div class="description">
+        {{ product.description }}
+      </div>
+    <div class="container-buy">
+      <h2>{{ product.price }}€</h2>
+      <button @click="addProduct(product)" class="btn btn-success">
       Añadir al Carrito
-    </button>
+      </button>
+    </div>
   </div>
   <div v-else>Cargando...</div>
 </template>
@@ -45,6 +52,27 @@ export default defineComponent({
   border: 1px solid black;
   border-radius: 5px;
   margin: 10px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.container-buy{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.slides {
+  margin: 10px;
+}
+
+.image {
+  width: 30vw;
+}
+
+.title{
+  margin: 10px;
 }
 </style>

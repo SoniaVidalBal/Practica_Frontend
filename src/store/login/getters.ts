@@ -6,5 +6,8 @@ const getters: GetterTree<IUsersState, IState> = {
   getToken(state) {
     return state.token;
   },
+  getUser(state) {
+    return state.user;
+  }
 }
 export default getters;

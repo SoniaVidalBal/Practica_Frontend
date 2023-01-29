@@ -8,10 +8,13 @@ const useLogin = () => {
   return {
     // GETTERS
     token: computed(() => store.getters["logIn/getToken"]),
+    user: computed(() => store.getters["logIn/getUser"]),
 
     // ACTIONS
     login: (login: Login) => store.dispatch("logIn/login", login),
-    logout: () => store.dispatch('logIn/logOut')
+    loadUser: () => store.dispatch('logIn/loadUser'),
+    logout: () => store.dispatch('logIn/logOut'),
+
   };
 };
 
