@@ -21,4 +21,21 @@ npm run lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Log in
+```
+[POST] https://api.escuelajs.co/api/v1/auth/login
+```
+```
+  "email": "john@mail.com",
+  "password": "changeme"
+```
+### Product list
+```
+[GET] https://api.escuelajs.co/api/v1/products
+```
+### User Profile
+```
+[GET] https://api.escuelajs.co/api/v1/auth/profile 
+```
+

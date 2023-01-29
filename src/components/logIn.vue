@@ -31,7 +31,7 @@ export default defineComponent ({
         const userinfo = { email: email.value, password: password.value }
         await login(userinfo)
         router.push({name: 'products'})
-      }
+      },
     }
     }
 })

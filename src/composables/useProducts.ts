@@ -1,4 +1,3 @@
-import { Products } from "@/models/product";
 import { computed } from "vue";
 import { useStore } from "vuex"
 

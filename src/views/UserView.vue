@@ -1,6 +1,6 @@
 <template>
     <div class="about" v-if="user">
-      <h2>Hola {{ user?.name }}</h2>
+      <h2>Hola {{ user.name }}</h2>
       <h4>Estos son tus datos:</h4>
       <img :src="user.avatar" alt="">
       <h5> Correo electrónico: {{ user.email }} </h5>
@@ -12,18 +12,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent} from 'vue';
+import { defineComponent } from 'vue';
 import useLogin from '@/composables/useLogin';
 
   export default defineComponent({
-  
+
     setup() {
-      const { user, loadUser } = useLogin();
+      const {user, loadUser} = useLogin()
       loadUser()
-      return {
-        loadUser,
-        user,
-      }
+      return {user};
     }
   })
 </script>
