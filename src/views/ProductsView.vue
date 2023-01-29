@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <SearchBar @filter="filterByName"/>
+    <SearchBar/> <!--@filter="filterByName"-->
   </div>
 
   <div class="products">
@@ -34,7 +34,7 @@ import SearchBar from '@/components/searchBar.vue';
       SearchBar
      },
     setup() {
-      const {products, isLoading, loadProducts} = useProducts()
+      const {products, isLoading, loadProducts, loadProduct} = useProducts()
       const {addProduct} = useCart();
       const router = useRouter();
       loadProducts();
@@ -43,13 +43,15 @@ import SearchBar from '@/components/searchBar.vue';
         isLoading, 
         addProduct, 
         goToDetail: (product: Products) => 
-          router.push({name: 'detail', params: {id: product.id}}),
-        filterByName(product: Products, filter: string){
-          if(filter == product.title){
-            loadProducts()
-          } 
-        }
-      }
+          router.push({name: 'detail', params: {id: product.id}}), 
+        //filterByName(product: Products, filter: string) {
+          //const title = product.title
+          //if(filter === title){
+            //loadProduct(product.id)
+          //}
+        //} NO se hacer filtro
+          
+      } 
     },
   })
 </script>
