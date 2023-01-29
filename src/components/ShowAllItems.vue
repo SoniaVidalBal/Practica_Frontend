@@ -41,16 +41,19 @@ import { defineComponent, PropType } from 'vue';
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
-
 }
 
 .item-image{
     width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .item-image > img {
     width: 100%;
     height: auto;
 }
-
+.btn{
+    margin: 3px;
+}
 </style>

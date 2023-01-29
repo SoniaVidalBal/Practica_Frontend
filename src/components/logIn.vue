@@ -1,6 +1,7 @@
 <template>
     <div class="login">
-        <h1 class="login-title">Log In</h1>
+        <h1 class="login-title">¡Bienvenido a Soniapop!</h1>
+        <h5>Inicia sesión para poder acceder a todo el contenido</h5>
         <form class="form" @submit.prevent="sendLogIn">
             <label  class="form-label" for="email">Email:</label>
             <input v-model="email" class="form-input" type="email" id="email" required placeholder="hola@email.com">

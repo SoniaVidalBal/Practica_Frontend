@@ -19,7 +19,7 @@
         <router-link :to="{name: 'products'}">Products</router-link>
     </li>
     <li>
-        <router-link :to="{name: 'user', params: {id : 1}}">User</router-link>
+        <router-link :to="{name: 'user'}">User</router-link>
     </li>
   </nav>
 </template>
