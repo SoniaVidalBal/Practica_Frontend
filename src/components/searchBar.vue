@@ -2,16 +2,20 @@
 
 <div class="search-bar">     
     <input v-model="filter" class="search" type="search" name="search-bar" placeholder="Busca el objecto que deseas encontrar">
-    <button @click="$emit('filter', filter)" class="btn btn-sm">Buscar</button>
+    <customButton @click="$emit('filter', filter)" class="btn btn-sm"/>
 </div>
 
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import customButton from './customButton.vue';
 
 export default defineComponent({
     name: 'SearchBar',
+    components: {
+        customButton,
+    },
     setup() {
         const filter = ref<string>('')
         return{
